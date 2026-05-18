@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>FlavorCart | Premium Food Delivery</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="2n.css">
+
+</head>
+
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">🍜 FlavorCart</div>
+            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <div class="nav-buttons" id="authButtons">
+                    <button class="btn-outline" id="loginBtn">Log in</button>
+                    <button class="btn-primary" id="registerBtn">Sign up</button>
+                </div>
+                <div class="theme-toggle" id="darkmodeToggle"><i class="fas fa-moon"></i></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Landing Page (all sections) -->
+    <div id="landingPage">
+        <section class="hero" id="home">
+            <div class="hero-content container">
+                <h1>Craving something delicious?</h1>
+                <p style="margin-top: 12px;">Discover the best food & restaurants in your city</p>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search for restaurant, dish or cuisine...">
+                    <button id="searchBtn"><i class="fas fa-search"></i> Find</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <section>
+                <h2>🔥 Popular Categories</h2>
+                <div class="categories" id="categoriesContainer"></div>
+            </section>
+            <section>
+                <h2>✨ Featured Restaurants</h2>
+                <div id="restaurantsContainer" class="cards-grid"></div>
+            </section>
+            <section>
+                <h2>🍽️ Popular Dishes</h2>
+                <div id="foodItemsContainer" class="cards-grid"></div>
+            </section>
+            <section>
+                <h2>🎁 Exclusive Offers</h2>
+                <div class="offers-grid" id="offersContainer"></div>
+            </section>
+            <section>
+                <h2>💬 What our foodies say</h2>
+                <div class="cards-grid" id="testimonialsContainer"></div>
+            </section>
+            <section class="app-section">
+                <div>
+                    <h2>Get the App</h2>
+                    <p>Order faster & enjoy exclusive discounts</p>
+                    <div style="display:flex; gap:12px; margin-top:16px;"><button class="btn-primary"><i
+                                class="fab fa-google-play"></i> Google Play</button><button class="btn-outline"><i
+                                class="fab fa-apple"></i> App Store</button></div>
+                </div><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=200&auto=format"
+                    style="width:180px; border-radius: 32px;" alt="app">
+            </section>
+            <section id="about">
+                <h2>About FlavorCart</h2>
+                <p style="max-width:700px">We connect you with top-rated restaurants and authentic flavors. Fast
+                    delivery, fresh ingredients, and unforgettable tastes — delivered at your doorstep.</p>
+            </section>
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <div style="display:flex; gap:24px; flex-wrap:wrap"><i class="fas fa-phone-alt"></i> +1 (800) 234-5678
+                    &nbsp; <i class="fas fa-envelope"></i> hello@flavorcart.com &nbsp; <i class="fab fa-instagram"></i>
+                    @flavorcart</div>
+            </section>
+        </div>
+        <footer>
+            <div class="container footer-grid">
+                <div>
+                    <h4>Explore</h4>
+                    <p>Restaurants</p>
+                    <p>Delivery Areas</p>
+                    <p>Gift Cards</p>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <p>About</p>
+                    <p>Careers</p>
+                    <p>Blog</p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <p>Terms</p>
+                    <p>Privacy</p>
+                </div>
+                <div>
+                    <h4>Follow</h4><i class="fab fa-instagram"></i> <i class="fab fa-twitter"></i> <i
+                        class="fab fa-facebook"></i>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:40px;">© 2025 FlavorCart — Taste the magic</div>
+        </footer>
+    </div>
+
+    <!-- Dashboard Page (hidden by default) -->
+    <div id="dashboardPage" style="display:none;" class="container" style="padding: 40px 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap:wrap;">
+            <h2 id="dashboardWelcome"></h2>
+            <button class="btn-outline" id="dashboardLogoutBtn" style="background: var(--accent); color:white;">Logout
+                <i class="fas fa-sign-out-alt"></i></button>
+        </div>
+        <div class="dashboard-grid" style="margin-top: 40px;">
+            <div class="profile-card"><i class="fas fa-user-circle fa-4x" style="color:var(--accent)"></i>
+                <h3 id="profileName"></h3>
+                <p id="profileEmail"></p>
+                <div class="rating"><i class="fas fa-star"></i> Premium Member</div>
+            </div>
+            <div class="profile-card">
+                <h3><i class="fas fa-receipt"></i> Recent Orders</h3>
+                <div id="ordersList"></div>
+            </div>
+            <div class="profile-card">
+                <h3><i class="fas fa-heart"></i> Favorites</h3>
+                <div id="favoritesList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-card">
+            <h3>Welcome Back</h3><input type="email" id="loginEmail" placeholder="Email"
+                style="width:100%; padding:12px; margin:12px 0; border-radius: 24px; border:1px solid #ccc;"><input
+                type="password" id="loginPassword" placeholder="Password"
+                style="width:100%; padding:12px; margin:12px 0; border-radius: 24px;"><button id="submitLogin"
+                class="btn-primary" style="width:100%">Login</button><button class="btn-outline closeModal"
+                style="margin-top:12px; width:100%">Cancel</button>
+        </div>
+    </div>
+    <div id="registerModal" class="modal">
+        <div class="modal-card">
+            <h3>Create Account</h3><input type="text" id="regName" placeholder="Full Name"
+                style="width:100%; padding:12px; margin:12px 0; border-radius:24px;"><input type="email" id="regEmail"
+                placeholder="Email" style="width:100%; padding:12px; margin:12px 0;"><input type="password"
+                id="regPassword" placeholder="Password" style="width:100%; padding:12px; margin:12px 0;"><button
+                id="submitRegister" class="btn-primary" style="width:100%">Sign Up</button><button
+                class="btn-outline closeModal" style="margin-top:12px; width:100%">Close</button>
+        </div>
+    </div>
+
+</body>
+<!-- This Poject made By Deepak Groups -->
+<script src="2.js"></script>
+
+</html>
